@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Capria</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════
+       SCREEN 1: LANDING
+       Two actions. Nothing else.
+       ══════════════════════════════════════ -->
+  <div id="screen-landing" class="screen active">
+    <div class="landing-bg">
+      <div class="orb orb1"></div>
+      <div class="orb orb2"></div>
+      <div class="orb orb3"></div>
+    </div>
+    <div class="landing-content">
+      <div class="logo-wrap">
+        <span class="logo-icon">⚡</span>
+        <h1 class="logo-text">Capria<span class="logo-accent">AI</span></h1>
+      </div>
+      <p class="tagline">Drop a photo. Go viral.</p>
+      <div class="landing-actions">
+        <label class="btn-upload" id="upload-trigger">
+          <input type="file" id="file-input" accept="image/*" hidden />
+          <span class="btn-icon">📸</span>
+          <span>Upload Image</span>
+        </label>
+        <button class="btn-text" id="btn-continue">
+          <span class="btn-icon">✍️</span>
+          <span>Continue Without Image</span>
+        </button>
+      </div>
+      <p class="landing-sub">Instagram & TikTok &nbsp;·&nbsp; Personal & Business &nbsp;·&nbsp; Safe & Viral</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SCREEN 2: SETUP
+       One choice. One button.
+       ══════════════════════════════════════ -->
+  <div id="screen-setup" class="screen">
+    <div class="setup-bg">
+      <div class="orb orb1"></div>
+      <div class="orb orb2"></div>
+    </div>
+    <div class="setup-content">
+      <button class="btn-back" id="btn-back-setup">← Back</button>
+
+      <div class="setup-header">
+        <div class="image-preview-wrap" id="preview-wrap" style="display:none">
+          <img id="image-preview" src="" alt="Preview" />
+          <div class="preview-overlay">✓ Ready</div>
+        </div>
+        <h2 class="setup-title">One last thing</h2>
+        <p class="setup-sub">Tell us who this is for — AI handles the rest</p>
+      </div>
+
+      <div class="mode-cards">
+        <div class="mode-card active" data-mode="PERSONAL">
+          <span class="mode-icon">👤</span>
+          <span class="mode-label">Personal</span>
+          <span class="mode-desc">Creator & lifestyle</span>
+        </div>
+        <div class="mode-card" data-mode="BUSINESS">
+          <span class="mode-icon">🏪</span>
+          <span class="mode-label">Business</span>
+          <span class="mode-desc">Brand & sales</span>
+        </div>
+      </div>
+
+      <div class="business-field" id="business-field" style="display:none">
+        <input type="text" id="business-type" placeholder="e.g. coffee shop, gym, fashion brand..." class="field-input" />
+      </div>
+
+      <div class="optional-field">
+        <textarea id="description-input" placeholder="Describe your post (optional — AI figures it out)..." class="field-input" rows="3"></textarea>
+      </div>
+
+      <button class="btn-generate" id="btn-generate">
+        <span id="generate-label">✨ Generate Viral Content</span>
+        <span id="generate-spinner" style="display:none">
+          <span class="dot-loader"><span></span><span></span><span></span></span>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SCREEN 3: RESULTS
+       Safe/Viral tabs + cards + micro-features
+       ══════════════════════════════════════ -->
+  <div id="screen-results" class="screen">
+    <div class="results-bg">
+      <div class="orb orb1"></div>
+      <div class="orb orb3"></div>
+    </div>
+    <div class="results-content">
+
+      <div class="results-header">
+        <div class="results-title-row">
+          <h2 class="results-title">⚡ Viral Kit</h2>
+          <button class="btn-new" id="btn-new">New Post</button>
+        </div>
+        <div id="detected-badge" class="detected-badge" style="display:none"></div>
+      </div>
+
+      <!-- Safe / Viral toggle -->
+      <div id="version-tabs" class="version-tabs" style="display:none">
+        <button id="tab-safe" class="version-tab active">
+          <span class="tab-dot dot-safe"></span>Safe
+        </button>
+        <button id="tab-viral" class="version-tab">
+          <span class="tab-dot dot-viral"></span>Viral
+        </button>
+      </div>
+
+      <!-- Cards injected by JS -->
+      <div id="results-cards" class="results-cards"></div>
+
+      <div class="results-footer">
+        <button class="btn-regenerate" id="btn-regenerate">🔄 Regenerate</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
