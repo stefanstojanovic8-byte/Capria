@@ -217,8 +217,8 @@ async function handleGenerate() {
 function showLoadingCards() {
   resultsCards.innerHTML = '';
   viralScorePanel.style.display  = 'none';
-  socialPreviewCard.style.display = 'none';
-  shareCard.style.display        = 'none';
+socialPreviewCard.style.display = 'none';
+shareCard.style.display        = 'none';
 
   const skeletons = ['hook','captions','songs','hashtags','viral','engagement'];
   skeletons.forEach((type, i) => {
